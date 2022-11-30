@@ -1,5 +1,8 @@
-%function to import data
-dir();
+% function my_importdata()
+dir EEG_data ;
+
+
+
 for cont=1 : 10
     if cont<10
         load(strcat('EEG_data/ ','ad0',num2str(cont),'.mat'))
