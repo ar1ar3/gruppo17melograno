@@ -1,4 +1,4 @@
-function [PXX, f] = my_pwelch(segnale, overlap, window, nfft,fs)
+function [normal_PXX, f] = my_pwelch(segnale, overlap, window, nfft,fs)
     %riordino matrice 2d in una 3d
     [n_channels, n_samples]=size(segnale);
     
@@ -24,6 +24,7 @@ function [PXX, f] = my_pwelch(segnale, overlap, window, nfft,fs)
         xx= fft( segnale (: ,  xStart(idx_wdw):xEnd(idx_wdw) , : ) , nfft, 2);
         PXX= PXX + real (xx.*conj(xx)/window);
         
+       
     end
     
     %potenza di ogni finestra
@@ -35,7 +36,13 @@ function [PXX, f] = my_pwelch(segnale, overlap, window, nfft,fs)
 
     PXX = 2*PXX./fs;
     
+    %normalizzo ogni PSD
+    Q = trapz(PXX);
+    normal_PXX = PXX / Q;
+    
     PXX = mean(PXX,2);
+    
+    
     
     %NON HO IDEA DI COSA SIA QUESTA COSA
     f = linspace(0,fs/2,floor(nfft/2)+1);
