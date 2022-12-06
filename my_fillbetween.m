@@ -1,6 +1,5 @@
 function my_fillbetween(potenza, medio, fs, color)
 
-%     devstd=abs(std(potenza, 0, 2))/2;
     devstd=abs(std(potenza, 0, 2))/2;
     
     top= medio + devstd;

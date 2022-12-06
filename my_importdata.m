@@ -6,16 +6,16 @@ ad = dir('ad*.mat');
 
 %creo un cell array nel quale siano contenuti le matrice dei pazienti malati
 %load mi restituirebbe uno struct, per avere cell uso la funzione struct2cell
-for index = 1:length(ad);  
+for index = 1:length(ad)
     AD(index) = struct2cell (load(ad(index).name) );
-end;
+end
 
 %ripeto per i pazienti sani
 c = dir('c*.mat');
 
-for index = 1:length(c);  
+for index = 1:length(c)
     C(index) = struct2cell (load(c(index).name) );
-end;
+end
 
 %esco dalla cartella
 cd ../
