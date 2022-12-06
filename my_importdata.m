@@ -1,4 +1,3 @@
-%entro nella cartella nella quale sono contenuti i dati dei pazienti
 cd EEG_data\
 
 %con la funzione dir metto in a gli attributi relativi ai dati del tipo 'ad*.mat'
