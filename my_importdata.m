@@ -1,3 +1,4 @@
+function dataMat = my_importdata
 cd EEG_data\
 
 %con la funzione dir metto in a gli attributi relativi ai dati del tipo 'ad*.mat'
@@ -18,3 +19,5 @@ end;
 
 %esco dalla cartella
 cd ../
+
+end

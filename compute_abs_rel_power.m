@@ -9,10 +9,12 @@ function [abs_pow] = compute_abs(sgn,x,y, freq)
     banda = find(freq >x & freq <y);
 
     %faccio la sum solo tra x e y
-    abs_pow = 0;
-    for indx = 1 : length(banda)
-        abs_pow = abs_pow + sgn(banda(indx));
-    end
+%     abs_pow = 0;
+%     for indx = 1 : length(banda)
+%         abs_pow = abs_pow + sgn(banda(indx));
+%     end
+    
+    abs_pow = sum(sgn(freq >x & freq <y));
     
     abs_pow = abs_pow / length(banda);
 end
